@@ -9,7 +9,8 @@ class App extends Component {
     this.state = {
       currentUser: {name: 'Anonymous'}, 
       messages: [],
-      userCount: 0
+      userCount: 0,
+      cycleNumber: 0
     }
     this.onSubmitMessage = this.onSubmitMessage.bind(this)
     this.onNewUsername = this.onNewUsername.bind(this)
@@ -38,12 +39,17 @@ class App extends Component {
     this.socket = new WebSocket('ws://localhost:3001');
     this.socket.onmessage = (event) => {
       const incomingMessage = JSON.parse(event.data)
-      this.onNewMessage(incomingMessage);
-      if (incomingMessage.newCount) {
-        this.onUserCountChange(incomingMessage.newCount);
+      if (incomingMessage.type === 'userCycle' ){
+        return this.onNewCycleNumber(incomingMessage.cycleNumber);
+      } else {
+        if (incomingMessage.newCount) {
+          this.onUserCountChange(incomingMessage.newCount);
+        }
+        this.onNewMessage(incomingMessage);
       }
     }
   }
+
   onNewMessage(newMessage) {
     this.setState({
       messages: this.state.messages.concat(newMessage)
@@ -53,6 +59,13 @@ class App extends Component {
     this.setState({
       userCount: newCount
     })
+  }
+  onNewCycleNumber(number){
+    this.setState({
+      cycleNumber: number + 5
+    }, () => {
+      console.log(this.state.cycleNumber)
+    });
   }
 
   render() {
