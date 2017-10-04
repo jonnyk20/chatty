@@ -106,3 +106,15 @@ body {
 .user-blue {
   color: #0000ff;
 }
+
+.image {
+  width: 100%;
+  text-align: center;
+}
+.image img{
+  max-width: 60%;
+}
+
+.message {
+  flex-flow: row wrap;
+}
