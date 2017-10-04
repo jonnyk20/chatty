@@ -26,6 +26,7 @@ wss.on('connection', (ws) => {
     ws.send(JSON.stringify({id: uuidv1(), type: 'userCycle', cycleNumber: userCycle}));
 
   userCycle = userCycle === 4 ? 0 : userCycle + 1;
+
   console.log(wss.clients.size)
   wss.clients.forEach((client, index) => {
     if (client.readyState === WebSocket.OPEN) {

@@ -15,25 +15,28 @@ class ChatBar extends Component {
   render() {
     return (
       <footer className='chatbar'>
-        <form
-          onSubmit={(event) => this.onHandleUserSubmit(event)}
-        >
           <input 
+            onKeyPress={(event) => {
+              if(event.key === 'Enter') {
+                this.onHandleUserSubmit(event)
+              }
+            }}
             onBlur={(event) => this.onHandleUserSubmit(event)}
             className='chatbar-username' 
             value={this.state.user}
             onChange={(event) => this.onUserChange(event)}
           />
-        </form>
-        <form
-          onSubmit={(event) => this.onHandleMessageSubmit(event)}
-        >
+
           <input
             className='chatbar-message' 
             value={this.state.message} 
             onChange={(event) => this.onMessageChange(event)}
+            onKeyPress={(event) => {
+              if(event.key === 'Enter') {
+                this.onHandleMessageSubmit(event)
+              }
+            }}
           />
-        </form>
       </footer>
     );
   }

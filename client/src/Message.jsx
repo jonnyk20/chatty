@@ -6,18 +6,9 @@ class Message extends Component {
     this.messageColors = ['purple', 'blue', 'green', 'orange']
 
     return (
-      <div>
-        { this.props.message.type === 'incomingMessage' ? (
-        <div className="message">
-          <span className={'message-username user-' + this.messageColors[this.props.message.userCycle]}>{this.props.message.username}</span>
-          <span className="message-content">{this.props.message.content}</span>
-        </div>
-        ) : (
-          <div className="message system">
-            {this.props.message.content}
-          </div>
-          )
-        }
+      <div className="message">
+        <span className={'message-username user-' + this.messageColors[this.props.message.userCycle]}>{this.props.message.username}</span>
+        <span className="message-content">{this.props.message.content}</span>
       </div>
     );
   }
