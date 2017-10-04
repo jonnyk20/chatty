@@ -62,9 +62,7 @@ class App extends Component {
   }
   onNewCycleNumber(number){
     this.setState({
-      cycleNumber: number + 5
-    }, () => {
-      console.log(this.state.cycleNumber)
+      cycleNumber: number
     });
   }
 
@@ -72,11 +70,14 @@ class App extends Component {
     return (
       <div>
         <Header userCount={this.state.userCount}/>
-        <MessageList messages={this.state.messages}/>
+        <MessageList 
+          messages={this.state.messages}
+        />
         <ChatBar 
           user={this.state.currentUser} 
           onSubmitMessage={this.onSubmitMessage}
           onNewUsername={this.onNewUsername}
+          cycleNumber={this.state.cycleNumber}
         />
       </div>
     );
