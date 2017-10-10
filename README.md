@@ -35,9 +35,26 @@ web pack dev server will listen on http://localhost:3000
 ### Dependencies
 
 1) Server Dependencies
-* React
-* Webpack
-* [babel-loader](https://github.com/babel/babel-loader)
-* [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+* express
+* uuid
+* ws
 
-1) Client Dependencies
+2) Client Dependencies
+* babel-core
+* babel-loader
+* babel-preset-es2015
+* babel-preset-react
+* babel-preset-stage-0
+* css-loader
+* eslint
+* eslint-plugin-react
+* node-sass
+* sass-loader
+* sockjs-client
+* style-loader
+* webpack
+* webpack-dev-server
+
+## Final Product
+
+!["screenshot of chat"](https://github.com/jonnyk20/chatty/blob/master/docs/chatpng)
