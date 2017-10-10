@@ -14,7 +14,7 @@ const server = express()
   .listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
 
 // Create the WebSockets server
-const wss = new WebSocket.Server({ server });
+const wss = new WebSocket.Server({server});
 
 // Set up a callback that will run when a client connects to the server
 // When a client connects they are assigned a socket, represented by

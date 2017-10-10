@@ -5,13 +5,14 @@ import ImageDiv from './ImageDiv.jsx';
 class Message extends Component {
   render() {
     this.messageColors = ['purple', 'blue', 'green', 'orange'];
+
     const imagePath = new RegExp(/https?:\/\/.*\.(?:png|jpg)/, 'ig');
     const foundImages = this.props.message.content.match(imagePath);
     let messageImages;
     let filteredString = this.props.message.content;
     if (foundImages !== null){
         messageImages = foundImages.map((match, index) => {
-        return (<ImageDiv key={index} source={match} /> )
+        return (<ImageDiv key={index} source={match} />)
        })
        filteredString = this.props.message.content.replace(imagePath, '')
     }
