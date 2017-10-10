@@ -57,4 +57,4 @@ web pack dev server will listen on http://localhost:3000
 
 ## Final Product
 
-!["screenshot of chat"](https://github.com/jonnyk20/chatty/blob/master/docs/chatpng)
+!["screenshot of chat"](https://github.com/jonnyk20/chatty/blob/master/docs/chat.png)
